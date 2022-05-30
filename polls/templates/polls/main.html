@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/main.css' %}" />
+{% if latest_question_list %}
+<div class="header">
+  <div class="branding" >
+    <h1 id="site_name">amoeba</h1>
+  </div>
+</div>
+<button type="button" onclick="location.href='{% url 'polls:paper' %}' ">
+  시험 응시
+</button>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}

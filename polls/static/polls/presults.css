@@ -1,0 +1,48 @@
+body{
+  margin-bottom: 200px;
+}
+
+.paper{
+  margin: 0px 200px;
+}
+fieldset {
+  width: auto;
+}
+
+legend {
+  margin-left: 100px;
+  color: #004fff;
+}
+.line {
+  width: auto;
+  height: auto;
+  margin: 5px 20px;
+  font-size: 20px;
+}
+
+.correct {
+  color: blue;
+}
+
+.wanswer {
+  color: red;
+}
+.answer{
+  color:darkviolet;
+}
+.btn_set{
+  margin-top: 20px;
+}
+
+button {
+  width: 200px;
+  height: 80px;
+  align-items: center;
+  margin-right: 20px;
+  color: #fff;
+  background: #004fff;
+  font-size: 30px;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
+}

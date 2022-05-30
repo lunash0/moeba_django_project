@@ -1,0 +1,37 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/paper.css' %}" />
+{% if latest_question_list %}
+<ul>
+  <form action="{% url 'polls:vote' %}" method="post">
+    <div class="paper">
+      {% for question in latest_question_list %} {% csrf_token %} {% with count=forloop.counter %}
+      <fieldset>
+        <legend><h1>{{ count }}. {{ question.question_text }}</h1></legend>
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %} {% for choice in question.choice_set.all %}
+        <div class="line">
+          <input
+            type="radio"
+            name="choice_{{ count }}"
+            id="choice_{{ forloop.counter }}"
+            value="{{ choice.id }}"
+          />
+          <label for="choice{{ forloop.counter }}"
+            >{{ choice.choice_text }}</label
+          ><br />
+        </div>
+        {% endfor %}
+      </fieldset>
+      {% endwith %} 
+      {% endfor %}
+      <div class="btn">
+        <input type="submit" value="Vote" />
+      </div>
+    </div>
+  </form>
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
